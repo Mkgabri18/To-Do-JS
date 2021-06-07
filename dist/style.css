@@ -1,0 +1,239 @@
+:root {
+  --primary: #3e2723;
+  --light-primary: #d3b8ae;
+  --dark-primary: #1b0000;
+  --secondary: #bb4d00;
+  --dark-secondary: #ac1900;
+  --success: #558b2f;
+  --error: #c62828;
+  --white: #fff;
+  --color: #ffc107;
+  --font-family: "Orbitron", sans-serif;
+}
+
+/* Mixins */
+body {
+  font-family: Lato, sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3em;
+  }
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+input,
+button {
+  outline: none;
+}
+
+.modal {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  max-width: 400px;
+  padding: 1.5em;
+  text-align: center;
+  border: none;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+  border-radius: 15px;
+  box-sizing: border-box;
+  z-index: 10;
+}
+.modal__close {
+  position: absolute;
+  display: inline-block;
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+}
+.modal__close--icon {
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  width: 100%;
+  left: 0;
+}
+.modal__close--icon::before, .modal__close--icon::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  background: #333;
+}
+.modal__close--icon::before {
+  transform: rotate(45deg);
+}
+.modal__close--icon::after {
+  transform: rotate(-45deg);
+}
+.modal__title {
+  font-size: 1.5em;
+  margin: 10px auto;
+}
+.modal .task__form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.6em;
+}
+.modal .task__form input[class*=task__] {
+  border: none;
+  border-bottom: 1px solid #333;
+  height: 1.5em;
+  margin-bottom: 1em;
+  padding: 0.5em 1em;
+}
+.modal .task__date {
+  width: 36%;
+}
+.modal .task__cta {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+.modal .task__cta--add, .modal .task__cta--clean {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  padding: 0.7em;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background: #0984e3;
+}
+.modal .task__cta--add:disabled, .modal .task__cta--clean:disabled {
+  filter: grayscale(60%);
+}
+.modal .task__cta--clean {
+  margin-right: 5px;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  padding: 2em;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 60px 50px 1fr 1fr;
+}
+@media screen and (min-width: 960px) {
+  .container {
+    height: 100%;
+    width: 50vw;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 60px 50px 1fr 1fr;
+    margin: 2rem auto;
+    box-shadow: 0 2px 5px -1px #000;
+    min-height: 90vh;
+    border-radius: 12px;
+  }
+}
+.container .title {
+  text-align: center;
+}
+.container .task__new {
+  text-align: center;
+}
+.container .task__new--btn {
+  padding: 10px 15px;
+  position: relative;
+  margin-right: 20px;
+  background: #fff;
+  border: none;
+}
+.container .task__new--btn:hover::after {
+  width: 100%;
+}
+.container .task__new--btn::after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  width: 10%;
+  height: 3px;
+  background: #000;
+  left: 0;
+  bottom: 0;
+  transition: all 0.25s ease;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%);
+}
+.container .task__new--btn i {
+  margin-right: 0.5em;
+}
+@media screen and (min-width: 768px) {
+  .container .task__todo .title {
+    text-align: center;
+  }
+}
+.container .task__todo .todo__list {
+  margin: 0.5em auto 1em;
+}
+@media screen and (min-width: 768px) {
+  .container .task__todo .todo__list {
+    width: 400px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container .task__done .title {
+    text-align: center;
+  }
+}
+.container .task__done .done__list {
+  margin: 0.5em auto 1em;
+}
+@media screen and (min-width: 768px) {
+  .container .task__done .done__list {
+    width: 400px;
+  }
+}
+
+.row__Item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5em;
+  background: aliceblue;
+  padding: 5px 0.8em;
+  border-radius: 5px;
+}
+.row__CTA {
+  display: flex;
+  align-items: center;
+}
+.row__CTA i {
+  margin: 0 5px;
+  height: 1em;
+}
+.row__CTA i.fa-circle {
+  color: #ccc;
+}
+.row__CTA i.fa-check-circle {
+  color: #008f20;
+}
+.row__CTA i.fa-trash-alt {
+  color: #ff0000;
+}
+.row__Info .item__title {
+  font-size: 1em;
+  margin-bottom: 0.3em;
+}
+.row__Info .item__description {
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.7);
+}
+.row__Info .item__deadline {
+  font-size: 0.6em;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.isHidden {
+  display: none;
+}

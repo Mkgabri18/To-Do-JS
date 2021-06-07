@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - TO-DO List JS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<dialog class="modal" id="modal">
+  <h2 class="modal__title">New Task</h2>
+  <form class="task__form">
+    <input class="task__title" type="text" placeholder="Insert Title" autofocus="autofocus"/>
+    <input class="task__description" type="text" placeholder="Add Description"/>
+    <input class="task__date" type="date" value="GG/MM/AAAA"/>
+    <div class="task__cta">
+      <button class="task__cta--clean" type="button" onclick="cleanForm()" disabled="disabled">Clean</button>
+      <button class="task__cta--add" type="submit" onclick="addTask(event)" disabled="disabled">Add Task</button>
+    </div>
+  </form><span class="modal__close" id="closeModal" onclick="closeModal()"><i class="modal__close--icon" role="button"></i>
+    <!--.fas.fa-times.fa-2x--></span>
+</dialog>
+<div class="container">
+  <div class="title">
+    <h1>Task List</h1>
+  </div>
+  <div class="task__new">
+    <button class="task__new--btn" onclick="openModal()"><i class="fas fa-plus"></i>Add new task</button>
+  </div>
+  <div class="task__todo">
+    <h3 class="title">Task TODO</h3>
+    <div class="todo__list"></div>
+  </div>
+  <div class="task__done">
+    <h3 class="title">Task Completed</h3>
+    <div class="done__list"></div>
+  </div>
+</div>
+<div class="todo-stats">
+  <div class="todo__remaind"></div>
+  <div class="todo__completed"></div>
+</div>
+<template>
+  <div class="row__Item">
+    <div class="row__Info">
+      <h3 class="item__title"></h3>
+      <p class="item__description"></p><small class="item__deadline"></small>
+    </div>
+    <h4 class="row__CTA"><i class="far fa-circle" onclick="completeTask(this)"></i><i class="fas fa-check-circle" onclick="undoneTask(this)"></i><i class="far fa-trash-alt" onclick="deleteTask(this)"></i></h4>
+  </div>
+</template>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+dialog#modal.modal
+  h2.modal__title New Task
+  form.task__form
+    input.task__title(type="text", placeholder="Insert Title", autofocus)
+    input.task__description(type="text", placeholder="Add Description")
+    input.task__date(type="date", value="GG/MM/AAAA")
+    .task__cta
+      button.task__cta--clean(type="button", onclick="cleanForm()", disabled) Clean
+      //- button.task__cta--clean(type="reset", onclick="cleanForm()", disabled) Clean
+      button.task__cta--add(type="submit", onclick="addTask(event)", disabled) Add Task
+
+  span#closeModal.modal__close(onclick="closeModal()")
+    i.modal__close--icon(role="button")
+    //.fas.fa-times.fa-2x
+
+.container
+  .title
+    h1 Task List
+  .task__new
+    button.task__new--btn(onclick="openModal()")
+      i.fas.fa-plus
+      | Add new task
+  .task__todo
+    h3.title Task TODO
+    .todo__list
+  .task__done
+    h3.title Task Completed
+    .done__list
+
+.todo-stats
+  .todo__remaind
+  .todo__completed
+
+template
+  .row__Item
+    .row__Info
+      h3.item__title
+      p.item__description
+      small.item__deadline
+    h4.row__CTA
+      i.far.fa-circle(onclick="completeTask(this)")
+      i.fas.fa-check-circle(onclick="undoneTask(this)")
+      i.far.fa-trash-alt(onclick="deleteTask(this)")
